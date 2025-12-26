@@ -1,5 +1,5 @@
 version = 1
-revision = 2
+revision = 3
 requires-python = ">=3.12"
 
 [[package]]
@@ -7,11 +7,26 @@ name = "eas-same-lab"
 version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
+    { name = "easgen" },
+    { name = "pydub" },
     { name = "scipy" },
 ]
 
 [package.metadata]
-requires-dist = [{ name = "scipy", specifier = ">=1.16.1" }]
+requires-dist = [
+    { name = "easgen", specifier = ">=0.1.9" },
+    { name = "pydub", specifier = ">=0.25.1" },
+    { name = "scipy", specifier = ">=1.16.1" },
+]
+
+[[package]]
+name = "easgen"
+version = "0.1.9"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/12/ee/555f5aed82a660ae283189ecccb20e231d730f9315d36a57a2247c105044/EASGen-0.1.9.tar.gz", hash = "sha256:d37ecf97e36d5bdfe8e31a49d9c8c2fec043d98fea84474e2c14654e0b112138", size = 14876, upload-time = "2022-11-16T18:49:28.198Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/8c/39/55777cb67c4ce41ce40eb11751a7e6a3356963d0235628f3981d6f30ecc1/EASGen-0.1.9-py2.py3-none-any.whl", hash = "sha256:203c956c59fab8d9adf25a0ec6518300d63a814d355d7dcc0bbbd7d2e9dad0fb", size = 12894, upload-time = "2022-11-16T18:49:26.821Z" },
+]
 
 [[package]]
 name = "numpy"
@@ -74,6 +89,15 @@ wheels = [
     { url = "https://files.pythonhosted.org/packages/14/ba/5b5c9978c4bb161034148ade2de9db44ec316fab89ce8c400db0e0c81f86/numpy-2.3.2-cp314-cp314t-win32.whl", hash = "sha256:6f1ae3dcb840edccc45af496f312528c15b1f79ac318169d094e85e4bb35fdf1", size = 6514777, upload-time = "2025-07-24T20:55:57.66Z" },
     { url = "https://files.pythonhosted.org/packages/eb/46/3dbaf0ae7c17cdc46b9f662c56da2054887b8d9e737c1476f335c83d33db/numpy-2.3.2-cp314-cp314t-win_amd64.whl", hash = "sha256:087ffc25890d89a43536f75c5fe8770922008758e8eeeef61733957041ed2f9b", size = 13111856, upload-time = "2025-07-24T20:56:17.318Z" },
     { url = "https://files.pythonhosted.org/packages/c1/9e/1652778bce745a67b5fe05adde60ed362d38eb17d919a540e813d30f6874/numpy-2.3.2-cp314-cp314t-win_arm64.whl", hash = "sha256:092aeb3449833ea9c0bf0089d70c29ae480685dd2377ec9cdbbb620257f84631", size = 10544226, upload-time = "2025-07-24T20:56:34.509Z" },
+]
+
+[[package]]
+name = "pydub"
+version = "0.25.1"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/fe/9a/e6bca0eed82db26562c73b5076539a4a08d3cffd19c3cc5913a3e61145fd/pydub-0.25.1.tar.gz", hash = "sha256:980a33ce9949cab2a569606b65674d748ecbca4f0796887fd6f46173a7b0d30f", size = 38326, upload-time = "2021-03-10T02:09:54.659Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/a6/53/d78dc063216e62fc55f6b2eebb447f6a4b0a59f55c8406376f76bf959b08/pydub-0.25.1-py2.py3-none-any.whl", hash = "sha256:65617e33033874b59d87db603aa1ed450633288aefead953b30bded59cb599a6", size = 32327, upload-time = "2021-03-10T02:09:53.503Z" },
 ]
 
 [[package]]
