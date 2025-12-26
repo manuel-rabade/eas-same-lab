@@ -1,7 +1,11 @@
 from EASGen import EASGen
+import sys
 
-header = "ZCZC-CIV-RWT-000000+0300-832257-XDIF/004-"
-print(header)
+header = sys.argv[1]
+output = sys.argv[2]
+
+print(f"header = {header}")
+print(f"output = {output}")
 
 Alert = EASGen.genEAS(header=header, attentionTone=False, endOfMessage=True)
-EASGen.export_wav("test-same.wav", Alert)
+EASGen.export_wav(output, Alert)
