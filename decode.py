@@ -3,6 +3,7 @@ from scipy.signal import butter, lfilter
 import numpy as np
 import math
 import sys
+import argparse
 
 # Constants
 MARK_FREQ = 2083.3  # Frequency for bit 1
@@ -13,8 +14,37 @@ PREAMBLE_STEPS = 1
 ATTENTION_STEPS = 4
 
 def main():
+    # Parse command line arguments
+    parser = argparse.ArgumentParser(
+        description='Decode EAS/SAME (Emergency Alert System/Specific Area Message Encoding) messages from WAV files.',
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog='''
+Examples:
+  %(prog)s alert.wav
+  %(prog)s --verbose emergency.wav
+        '''
+    )
+    parser.add_argument(
+        'input_file',
+        help='Path to the WAV file containing the EAS/SAME message'
+    )
+    parser.add_argument(
+        '-v', '--verbose',
+        action='store_true',
+        help='Enable verbose output with detailed processing information'
+    )
+    parser.add_argument(
+        '--version',
+        action='version',
+        version='%(prog)s 1.0'
+    )
+
+    args = parser.parse_args()
+
     # Read WAV file
-    sample_rate, data = wavfile.read(sys.argv[1])
+    sample_rate, data = wavfile.read(args.input_file)
+    if args.verbose:
+        print(f"[INFO] Reading file: {args.input_file}")
     print(f"sample_rate = {sample_rate}")
     print(f"shape = {data.shape}")
     length = round(data.shape[0] / sample_rate, 1)
